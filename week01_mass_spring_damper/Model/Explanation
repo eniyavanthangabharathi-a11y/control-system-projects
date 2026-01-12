@@ -1,0 +1,2 @@
+We are experimenting physical mass spring damper model in matlab and simulink so that we do experiment and understand we are using Mass (m) = 2kg and spring (k) = 4 and damper(c) = 2;
+we are going to use the same model for all type of simulation like open loop , closed loop, open loop with distrubance, closed loop with distubance and closed loop with integral controller 
