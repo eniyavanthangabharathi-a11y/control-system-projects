@@ -1,0 +1,21 @@
+# Objective
+Study steady-state and transient behavior of a mass–spring–damper system under
+open-loop, P control, and PI control in the presence of constant disturbance.
+
+# Plant Model
+G(s) = 1 / (2s² + 2s + 4)
+
+DC gain = 1/k = 0.25
+
+# Experiments
+1. Open loop with disturbance
+2. Closed loop with P controller
+3. Closed loop with PI controller
+
+# Key Observations
+- Open loop: steady-state offset proportional to disturbance
+- P control: reduced offset, not zero
+- PI control: zero steady-state offset due to integral action
+
+# Conclusion
+Integral action is required to eliminate steady-state error caused by constant disturbances.
