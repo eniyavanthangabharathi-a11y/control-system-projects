@@ -13,6 +13,8 @@ m\ddot{x}(t) + c\dot{x}(t) + kx(t) = u(t) + d(t)
 \]
 
 ### Transfer function
+The system transfer function is:
+
 \[
 G(s) = \frac{1}{ms^2 + cs + k}
 \]
