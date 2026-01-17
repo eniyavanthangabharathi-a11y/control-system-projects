@@ -1,26 +1,72 @@
-## 1. Problem Definition
-- Objective: our objective is to analyis Mass Sprin Damper System so we are going to consider this into general form then plot the analysis with open loop and close loop then implement the controllers(P,PI,PID) analyis the response of the system  
-- Active input:
-Mass(m)=2, Spring (K) =4, Damper(c) = 2;
-- Expected steady-state behavior:
-Steady state error = 0.25
+# Week 01 – Mass Spring Damper System
 
-## 2. Plant Model
-- Governing equation:
+## Objective
+Analyze steady-state behavior and disturbance rejection of a mass–spring–damper system using P and PI controllers.
+
+---
+
+## Plant Model
+
+### Governing equation
 \[
 m\ddot{x}(t) + c\dot{x}(t) + kx(t) = u(t) + d(t)
 \]
-Assuming zero initial conditions, the transfer function is:
 
+### Transfer function
 \[
 G(s) = \frac{1}{ms^2 + cs + k}
 \]
-- Transfer function:
-         1
-G = ---------------
-    2 s^2 + 2 s + 4
-## 3. Stability Check
+
+For \( m = 2 \), \( c = 2 \), \( k = 4 \):
+
+\[
+G(s) = \frac{1}{2s^2 + 2s + 4}
+\]
+
+---
+
+## Stability Check
 - Open-loop poles:
--0.5000 + 1.3229i
--0.5000 - 1.3229i
-- Stable / unstable:
+\[
+s = -0.5 \pm 1.3229j
+\]
+- System is stable (poles in left half-plane)
+
+---
+
+## Open-Loop Steady State
+- DC gain:
+\[
+G(0) = \frac{1}{4} = 0.25
+\]
+- With disturbance \( d = 0.5 \):
+\[
+y_{ss} = 0.125
+\]
+
+---
+
+## P Controller
+- Reduces steady-state error
+- Cannot eliminate disturbance offset
+- Faster response, nonzero steady-state error
+
+---
+
+## PI Controller
+- Integral action eliminates steady-state error
+- Improved disturbance rejection
+- Slower transient response
+
+---
+
+## Key Observations
+- DC gain determines steady-state response
+- P control reduces but does not eliminate error
+- PI control achieves zero steady-state error for constant disturbance
+
+---
+
+## Conclusion
+Steady-state behavior is governed by DC gain and system type.
+Integral action is required for complete disturbance rejection.
