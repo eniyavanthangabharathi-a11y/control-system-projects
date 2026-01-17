@@ -8,9 +8,9 @@ Analyze steady-state behavior and disturbance rejection of a mass–spring–dam
 ## Plant Model
 
 ### Governing equation
-\
+[\
 m\ddot{x}(t) + c\dot{x}(t) + kx(t) = u(t) + d(t)
-\
+\]
 
 ### Transfer function
 \[
