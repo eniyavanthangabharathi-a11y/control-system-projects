@@ -1,13 +1,5 @@
-% System parameters
-m = 2;
-c = 2;
-k = 4;
-
-% Laplace variable
-s = tf('s');
-
-% Plant model
-G = 1 / (m*s^2 + c*s + k);
+% Load plant model
+run('../model/plant_definition.m');
 
 % Integral controller
 Ki = 2;
@@ -41,3 +33,4 @@ title('Closed-loop disturbance rejection with integral control');
 
 % Steady-state value
 y(end)
+
