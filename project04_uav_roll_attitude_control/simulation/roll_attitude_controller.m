@@ -1,19 +1,22 @@
-% Load UAV roll model
-run('../model/uav_roll_model.m');
+% Disturbance torque (wind)
+d = 0.02;   % constant disturbance
 
-% Desired closed-loop poles (moderate response)
-poles = [-4 -5];
+% Disturbance enters same channel as control
+sys_dist = ss(A - B*K, B, C, D);
 
-% State feedback gain
-K = place(A, B, poles);
+% Simulate disturbance as input
+t = 0:0.01:5;
+disturbance = d * ones(size(t));
+y = lsim(sys_dist, disturbance, t);
 
-% Closed-loop system
-sys_cl = ss(A - B*K, B, C, D);
+% Poles 
+disp('Closed-loop poles with disturbance:')
+pole(sys_dist)
 
-% Step response (commanded roll angle)
+% Plot
 figure;
-step(sys_cl);
+plot(t, y, 'LineWidth', 1.5);
 grid on;
-title('Closed-Loop UAV Roll Attitude Response');
 xlabel('Time (s)');
 ylabel('Roll Angle (rad)');
+title('Roll Response with Constant Wind Disturbance');
