@@ -53,3 +53,39 @@ R = 1;
 K = lqr(A, B, Q, R);  
 disp('value of k')
 disp(K)
+
+x0 =[0; 0; 0.1; 0];
+dt =0.01;
+t_end = 5;
+state=x0;
+theta_hist=[];
+t_hist= [];
+
+figure(1);
+axis([-3 3 -1.5 1.5]);
+grid on;
+hold on;
+
+for t=0:dt:t_end 
+   F= -K*state;
+   x_dot =A*state+B*F;
+   state=state+x_dot*dt;
+   theta_hist(end+1)=state(3);
+   t_hist(end+1)=t;
+
+    figure(1)
+    cla;;
+    cart_x = state(1);
+    bob_x = cart_x + L*sin(state(3));
+    bob_y = L*cos(state(3));
+    rectangle('Position',[cart_x-0.2, -0.1, 0.4, 0.2]);
+    line([cart_x, bob_x],[0, bob_y]);
+drawnow;
+end
+
+figure(2);
+plot(t_hist,theta_hist);
+xlabel('Time (s)');
+ylabel('Theta (rad)');
+title('LQR - Pendulum Angle');
+grid on;
