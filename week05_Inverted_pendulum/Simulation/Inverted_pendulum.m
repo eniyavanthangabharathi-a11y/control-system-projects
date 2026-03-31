@@ -48,15 +48,26 @@ rank_ctrb = rank(ctrb(A, B))
 disp('--- OBSERVABILITY RANK ---');
 rank_obsv = rank(obsv(A, C))
 %% LQR modeling
-Q = diag([1,1,100,1]);
+Q = diag([10,1,100,10]);
 R = 1; 
 K = lqr(A, B, Q, R);  
 disp('value of k')
 disp(K)
 
+Acl = A - B*K;
+disp('Closed-loop eigenvalues:');
+disp(eig(Acl));
+
 x0 =[0; 0; 0.1; 0];
-dt =0.01;
+dt =0.001;
 t_end = 10;
+
+N = t_end / dt; 
+theta_hist = zeros(1, N);
+x_hist = zeros(1, N);
+t_hist = zeros(1, N);
+
+
 state=x0;
 theta_hist=[];
 t_hist= [];
@@ -66,25 +77,27 @@ axis([-3 3 -1.5 1.5]);
 grid on;
 hold on;
 
-for t=0:dt:t_end 
-   F= -K*state;
-   x_dot =A*state+B*F;
-   state=state+x_dot*dt;
-   theta_hist(end+1)=state(3);
-   x_hist(end+1) =state(1);
-   t_hist(end+1)=t;
+for i = 1:N
+    t = (i-1)*dt;
 
-    figure(1)
-    cla;;
-    cart_x = state(1);
-    bob_x = cart_x + L*sin(state(3));
-    bob_y = L*cos(state(3));
-    rectangle('Position',[cart_x-0.2, -0.1, 0.4, 0.2]);
-    line([cart_x, bob_x],[0, bob_y]);
-drawnow;
+    F = -K * state;          % control input
+    x_dot = A * state + B * F;
+    state = state + x_dot * dt;
+    theta_hist(i) = state(3);
+    x_hist(i) = state(1);
+    t_hist(i) = t;
+
+%     figure(1)
+%     cla;;
+%     cart_x = state(1);
+%     bob_x = cart_x + L*sin(state(3));
+%     bob_y = L*cos(state(3));
+%     rectangle('Position',[cart_x-0.2, -0.1, 0.4, 0.2]);
+%     line([cart_x, bob_x],[0, bob_y]);
+%     drawnow;
 end
 
-figure(2);
+figure(1);
 plot(t_hist,theta_hist);
 xlabel('Time (s)');
 ylabel('Theta (rad)');
@@ -92,7 +105,7 @@ title('LQR - Pendulum Angle');
 grid on;
 
 % Finalize the simulation by displaying the cart position over time
-figure(3);
+figure(2);
 plot(t_hist, x_hist);
 xlabel('Time (s)');
 ylabel('Cart Position (m)');
