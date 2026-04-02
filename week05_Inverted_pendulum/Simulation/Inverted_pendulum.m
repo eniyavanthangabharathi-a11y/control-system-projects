@@ -67,47 +67,59 @@ theta_hist = zeros(1, N);
 x_hist = zeros(1, N);
 t_hist = zeros(1, N);
 
-
-state=x0;
-theta_hist=[];
-t_hist= [];
-x_hist =[];
-figure(1);
-axis([-3 3 -1.5 1.5]);
-grid on;
-hold on;
+state = x0;
+theta_hist = zeros(1,N);
+x_hist = zeros(1,N);
+t_hist = zeros(1,N);
 
 for i = 1:N
-    t = (i-1)*dt;
-
-    F = -K * state;          % control input
-    x_dot = A * state + B * F;
-    state = state + x_dot * dt;
+    t_hist(i) = (i-1)*dt;
+    F = -K * state;
+    x_dot = A*state + B*F;
+    state = state + x_dot*dt;
     theta_hist(i) = state(3);
     x_hist(i) = state(1);
-    t_hist(i) = t;
+end
 
-%     figure(1)
-%     cla;;
-%     cart_x = state(1);
-%     bob_x = cart_x + L*sin(state(3));
-%     bob_y = L*cos(state(3));
-%     rectangle('Position',[cart_x-0.2, -0.1, 0.4, 0.2]);
-%     line([cart_x, bob_x],[0, bob_y]);
-%     drawnow;
+sys_tf = tf(sys);
+sys_theta = sys_tf(2,1);
+[C_pid, info] = pidtune(sys_theta, 'PD');
+
+Kp =20;
+Kd =5;
+Ki=0;
+
+A_pid = A + B*[0, 0, Kp, Kd];
+disp(eig(A_pid));
+
+state = x0;
+integral_err = 0;
+theta_pid = zeros(1,N);
+x_pid = zeros(1,N);
+
+for i = 1:N
+
+    
+    theta = state(3);
+    theta_dot = state(4);
+    F = Kp*theta + Kd*theta_dot + Ki*integral_err;
+    integral_err = integral_err + theta*dt;
+    x_dot = A*state + B*F;
+    state = state + x_dot*dt;
+    theta_pid(i) = state(3);
+    x_pid(i) = state(1);
 end
 
 figure(1);
-plot(t_hist,theta_hist);
-xlabel('Time (s)');
-ylabel('Theta (rad)');
-title('LQR - Pendulum Angle');
+plot(t_hist, theta_hist, t_hist, theta_pid);
+legend('LQR','PID');
+xlabel('Time (s)'); ylabel('Theta (rad)');
+title('LQR vs PID - Pendulum Angle');
 grid on;
 
-% Finalize the simulation by displaying the cart position over time
 figure(2);
-plot(t_hist, x_hist);
-xlabel('Time (s)');
-ylabel('Cart Position (m)');
-title('LQR - Cart Position');
+plot(t_hist, x_hist, t_hist, x_pid);
+legend('LQR','PID');
+xlabel('Time (s)'); ylabel('Cart Position (m)');
+title('LQR vs PID - Cart Position');
 grid on;

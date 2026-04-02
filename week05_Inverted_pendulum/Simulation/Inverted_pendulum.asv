@@ -58,14 +58,16 @@ Acl = A - B*K;
 disp('Closed-loop eigenvalues:');
 disp(eig(Acl));
 
-N = t_end/dt;
+x0 =[0; 0; 0.1; 0];
+dt =0.001;
+t_end = 10;
+
+N = t_end / dt; 
 theta_hist = zeros(1, N);
 x_hist = zeros(1, N);
 t_hist = zeros(1, N);
 
-x0 =[0; 0; 0.1; 0];
-dt =0.001;
-t_end = 10;
+
 state=x0;
 theta_hist=[];
 t_hist= [];
@@ -75,10 +77,16 @@ axis([-3 3 -1.5 1.5]);
 grid on;
 hold on;
 
-for t=0:dt:t_end 
+for i = 1:N
+    t = (i-1)*dt;
+
     F = -K * state;          % control input
     x_dot = A * state + B * F;
     state = state + x_dot * dt;
+    theta_hist(i) = state(3);
+    x_hist(i) = state(1);
+    t_hist(i) = t;
+
 %     figure(1)
 %     cla;;
 %     cart_x = state(1);
@@ -89,7 +97,7 @@ for t=0:dt:t_end
 %     drawnow;
 end
 
-figure(2);
+figure(1);
 plot(t_hist,theta_hist);
 xlabel('Time (s)');
 ylabel('Theta (rad)');
@@ -97,9 +105,30 @@ title('LQR - Pendulum Angle');
 grid on;
 
 % Finalize the simulation by displaying the cart position over time
-figure(3);
+figure(2);
 plot(t_hist, x_hist);
 xlabel('Time (s)');
 ylabel('Cart Position (m)');
 title('LQR - Cart Position');
 grid on;
+
+% reset for PID
+state = x0;
+Kp = -300;
+Kd = -50;
+Ki = 0;
+integral_err = 0;
+theta_pid = zeros(1, N);
+x_pid = zeros(1, N);
+
+for i = 1:N
+    theta = state(3);
+    theta_dot = state(4);
+    % compute F using Kp, Kd, Ki, integral_err
+    % update integral_err
+    % compute x_dot
+    % update state
+    
+    theta_pid(i) = state(3);
+    x_pid(i) = state(1);
+end 
