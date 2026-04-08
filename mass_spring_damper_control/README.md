@@ -51,6 +51,19 @@ Example:
 in matlab  
 run('../model/plant_definition.m');  
 ---
+📂 Project Structure
+
+mass_spring_damper_control/
+
+├── model/
+├── System_implementation/
+├── State_space_analysis/
+├── State_feedback_control/
+├── Pole_placement/
+├── results/
+
+👉 Each folder represents a different control strategy.
+---
 
 ## 📷 Results & Analysis
 
