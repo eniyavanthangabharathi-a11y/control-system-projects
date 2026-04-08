@@ -41,6 +41,10 @@ Feedback control significantly improves system stability and performance.
 Different methods provide trade-offs between speed, accuracy, and control effort.
 
 ---
+## outputs
+open loop
+mass_spring_damper_control/System_implementation/results/Controller_PID_implement/OpenLoop_dis_0.5.png
+---
 
 ## 🛠 Tools Used
 
