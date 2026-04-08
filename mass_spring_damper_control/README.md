@@ -42,10 +42,9 @@ Different methods provide trade-offs between speed, accuracy, and control effort
 
 ---
 ## 📷 Results
-
 <p align="center">
-  <img src="System_implementation/results/Controller_PID_implement/OpenLoop_dis_0.5.png" width="350">
-  <img src="System_implementation/results/Controller_PID_implement/ClosedLoop_PID_dis_0.5.png" width="350">
+  <img src="System_implementation/results/Controller_PID_implement/OpenLoop_dis_0.5.png" width="500">
+  <img src="System_implementation/results/Controller_PID_implement/ClosedLoop_PID_dis_0.5.png" width="500">
 </p>
 
 <p align="center">
@@ -56,15 +55,14 @@ Different methods provide trade-offs between speed, accuracy, and control effort
 ---
 
 <p align="center">
-  <img src="Pole_placement/result/pole_placement.jpg" width="350">
-  <img src="State_feedback_control/result/state_feedback_Effect.jpg" width="350">
+  <img src="Pole_placement/result/pole_placement.jpg" width="500">
+  <img src="State_feedback_control/result/state_feedback_Effect.jpg" width="500">
 </p>
 
 <p align="center">
   <b>Pole Placement</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <b>State Feedback</b>
 </p>
-
 ---
 
 ## 🛠 Tools Used
