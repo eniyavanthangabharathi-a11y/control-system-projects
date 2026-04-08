@@ -41,28 +41,47 @@ Feedback control significantly improves system stability and performance.
 Different methods provide trade-offs between speed, accuracy, and control effort.
 
 ---
-## 📷 Results
-<p align="center">
-  <img src="System_implementation/results/Controller_PID_implement/OpenLoop_dis_0.5.png" width="500">
-  <img src="System_implementation/results/Controller_PID_implement/ClosedLoop_PID_dis_0.5.png" width="500">
-</p>
+## 📷 Results & Analysis
 
-<p align="center">
-  <b>Open Loop</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <b>Closed Loop (PID)</b>
-</p>
+### 🔹 Open Loop Response
+<img src="System_implementation/results/Controller_PID_implement/OpenLoop_dis_0.5.png" width="600">
+
+- Overshoot ≈ 30%  
+- Oscillatory response  
+- Slow settling time  
+
+👉 The system is underdamped and unsuitable for controlled applications.
 
 ---
 
-<p align="center">
-  <img src="Pole_placement/result/pole_placement.jpg" width="500">
-  <img src="State_feedback_control/result/state_feedback_Effect.jpg" width="500">
-</p>
+### 🔹 Closed Loop (PID Control)
+<img src="System_implementation/results/Controller_PID_implement/ClosedLoop_PID_dis_0.5.png" width="600">
 
-<p align="center">
-  <b>Pole Placement</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <b>State Feedback</b>
-</p>
+- Reduced oscillations  
+- Faster settling time  
+- Handles disturbance effectively  
+
+👉 Feedback control stabilizes the system and improves disturbance rejection.
+
+---
+
+### 🔹 Pole Placement Control
+<img src="Pole_placement/result/pole_placement.jpg" width="600">
+
+- Controlled overshoot  
+- Faster response compared to open loop  
+
+👉 System poles directly influence transient response characteristics.
+
+---
+
+### 🔹 State Feedback Control
+<img src="State_feedback_control/result/state_feedback_Effect.jpg" width="600">
+
+- Improved stability  
+- Better dynamic response  
+
+👉 Full-state feedback allows precise shaping of system behavior.
 ---
 
 ## 🛠 Tools Used
