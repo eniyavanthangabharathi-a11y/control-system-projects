@@ -55,13 +55,13 @@ run('../model/plant_definition.m');
 
 mass_spring_damper_control/
 
-├── model/
-├── System_implementation/
-├── State_space_analysis/
-├── State_feedback_control/
-├── Pole_placement/
-├── results/
-
+├── model/  
+├── System_implementation/  
+├── State_space_analysis/  
+├── State_feedback_control/  
+├── Pole_placement/  
+├── results/  
+  
 👉 Each folder represents a different control strategy.
 ---
 
