@@ -44,8 +44,9 @@ Different methods provide trade-offs between speed, accuracy, and control effort
 ## 📷 Results & Analysis
 
 ### 🔹 Open Loop Response
+<p align="center'>
 <img src="System_implementation/results/Controller_PID_implement/OpenLoop_dis_0.5.png" width="600">
-
+</p>
 - Overshoot ≈ 30%  
 - Oscillatory response  
 - Slow settling time  
