@@ -42,8 +42,12 @@ Different methods provide trade-offs between speed, accuracy, and control effort
 
 ---
 ## outputs
-open loop
+OPEN LOOP
 ![Open Loop](System_implementation/results/Controller_PID_implement/OpenLoop_dis_0.5.png)
+
+Closed Loop
+![closed ](System_implementation/results/Controller_PID_implement/ClosedLoop_PID_dis_0.5.png)
+
 ---
 
 ## 🛠 Tools Used
