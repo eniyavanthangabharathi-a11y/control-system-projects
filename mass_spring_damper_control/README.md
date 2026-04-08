@@ -41,18 +41,29 @@ Feedback control significantly improves system stability and performance.
 Different methods provide trade-offs between speed, accuracy, and control effort.
 
 ---
-## outputs
-OPEN LOOP
-![Open Loop](System_implementation/results/Controller_PID_implement/OpenLoop_dis_0.5.png)
+## 📷 Results
 
-CLOSED LOOP
-![closed ](System_implementation/results/Controller_PID_implement/ClosedLoop_PID_dis_0.5.png)
+<p align="center">
+  <img src="System_implementation/results/Controller_PID_implement/OpenLoop_dis_0.5.png" width="350">
+  <img src="System_implementation/results/Controller_PID_implement/ClosedLoop_PID_dis_0.5.png" width="350">
+</p>
 
-POLE PLACEMENT
-![Pole placement](Pole_placement/result/pole_placement.jpg)
+<p align="center">
+  <b>Open Loop</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <b>Closed Loop (PID)</b>
+</p>
 
-STATE FEEDBACK 
-![statefeedback](State_feedback_control/result/state_feedback_Effect.jpg)
+---
+
+<p align="center">
+  <img src="Pole_placement/result/pole_placement.jpg" width="350">
+  <img src="State_feedback_control/result/state_feedback_Effect.jpg" width="350">
+</p>
+
+<p align="center">
+  <b>Pole Placement</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <b>State Feedback</b>
+</p>
 
 ---
 
