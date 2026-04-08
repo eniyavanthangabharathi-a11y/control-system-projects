@@ -4,7 +4,7 @@
 
 The mass-spring-damper system is a second-order dynamic system that exhibits oscillatory behavior and sensitivity to disturbances.
 
-The objective of this project is to:
+This project aims to:
 - Analyze system dynamics  
 - Improve stability  
 - Reduce overshoot  
@@ -34,11 +34,11 @@ The plant is modeled as a transfer function and reused across all control strate
 
 All simulations use a common plant model:
 
-model/plant_definition.m
+`model/plant_definition.m`
 
 This file defines:
 - System parameters (m, c, k)  
-- Transfer function G(s)  
+- Transfer function G(s)
 
 ### 🔁 Modular Design
 
@@ -47,22 +47,28 @@ Each control method:
 2. Designs its own controller  
 3. Simulates system response  
 
-Example:
-in matlab  
-run('../model/plant_definition.m');  
----
-📂 Project Structure
+Example (MATLAB):
+```matlab
+run('../model/plant_definition.m');
+```
 
+---
+
+## 📂 Project Structure
+
+```
 mass_spring_damper_control/
 
-├── model/  
-├── System_implementation/  
-├── State_space_analysis/  
-├── State_feedback_control/  
-├── Pole_placement/  
-├── results/  
-  
+├── model/
+├── System_implementation/
+├── State_space_analysis/
+├── State_feedback_control/
+├── Pole_placement/
+├── results/
+```
+
 👉 Each folder represents a different control strategy.
+
 ---
 
 ## 📷 Results & Analysis
@@ -77,7 +83,7 @@ mass_spring_damper_control/
 - Oscillatory response  
 - Slow settling time  
 
-👉 The system is underdamped and unsuitable for controlled applications.
+👉 The system is underdamped.
 
 ---
 
@@ -91,7 +97,7 @@ mass_spring_damper_control/
 - Faster settling time  
 - Handles disturbance effectively  
 
-👉 Feedback control stabilizes the system and improves disturbance rejection.
+👉 Feedback stabilizes the system.
 
 ---
 
@@ -102,9 +108,9 @@ mass_spring_damper_control/
 </p>
 
 - Controlled overshoot  
-- Faster response compared to open loop  
+- Faster response  
 
-👉 System poles directly influence transient response characteristics.
+👉 Poles determine system behavior.
 
 ---
 
@@ -115,34 +121,61 @@ mass_spring_damper_control/
 </p>
 
 - Improved stability  
-- Better dynamic response  
+- Better response  
 
-👉 Full-state feedback allows precise shaping of system behavior.
-
----
-
-## 📊 Comparison Summary
-
-| Method            | Stability | Response Speed | Overshoot | Disturbance Handling |
-|------------------|----------|---------------|-----------|----------------------|
-| Open Loop        | Poor     | Slow          | High      | None                 |
-| PID Control      | Good     | Faster        | Low       | Good                 |
-| Pole Placement   | Good     | Fast          | Medium    | Moderate             |
-| State Feedback   | Good     | Fast          | Low       | Good                 |
+👉 Full-state feedback enables precise control.
 
 ---
 
-## 📈 Key Engineering Insights
+## 📊 Comparison
 
-- Open-loop systems are highly sensitive to disturbances and lack stability  
-- Feedback significantly improves system performance and robustness  
-- PID control is effective for practical implementation  
-- Pole placement provides direct control over system dynamics  
-- State feedback enables precise tuning but requires full system states  
+| Method          | Stability | Speed | Overshoot | Disturbance |
+|----------------|----------|------|----------|-------------|
+| Open Loop      | Poor     | Slow | High     | None        |
+| PID            | Good     | Fast | Low      | Good        |
+| Pole Placement | Good     | Fast | Medium   | Moderate    |
+| State Feedback | Good     | Fast | Low      | Good        |
 
 ---
 
-## 🛠 Tools Used
+## ▶️ How to Run
+
+1. Open MATLAB  
+2. Navigate to a folder:
+
+```matlab
+cd('System_implementation')
+```
+
+3. Run:
+
+```matlab
+run('your_script_name.m')
+```
+
+---
+
+## ⚙️ Parameter Tuning
+
+Modify:
+- m (mass)  
+- c (damping)  
+- k (spring)  
+- Kp, Ki, Kd  
+
+---
+
+## 📈 Key Insights
+
+- Open-loop is unstable  
+- Feedback improves performance  
+- PID is practical  
+- Pole placement controls dynamics  
+- State feedback gives precision  
+
+---
+
+## 🛠 Tools
 
 - MATLAB  
 - Control System Toolbox  
@@ -151,7 +184,6 @@ mass_spring_damper_control/
 
 ## 🎯 Conclusion
 
-Feedback control transforms an oscillatory system into a stable and controllable one.  
-Different control strategies provide trade-offs between performance, complexity, and implementation requirements.
+Control strategies transform an unstable system into a stable one.
 
-Choosing the right method depends on system constraints and desired performance.
+Different methods involve trade-offs between performance and complexity.
