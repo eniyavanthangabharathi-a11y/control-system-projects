@@ -2,15 +2,54 @@
 
 ## 📌 Problem
 
-The mass-spring-damper system exhibits oscillatory behavior and is sensitive to disturbances.  
-The objective is to improve stability, reduce overshoot, and achieve faster settling using control strategies.
+The mass-spring-damper system is a second-order dynamic system that exhibits oscillatory behavior and sensitivity to disturbances.
+
+The objective of this project is to:
+- Analyze system dynamics  
+- Improve stability  
+- Reduce overshoot  
+- Achieve faster settling  
+- Handle disturbances effectively  
+
+using multiple control strategies.
 
 ---
 
 ## 🧠 System Overview
 
-The system is modeled using differential equations and analyzed using multiple control techniques to observe changes in system dynamics.
+The system is governed by:
 
+m x'' + c x' + k x = F(t)
+
+Where:
+- m → mass  
+- c → damping coefficient  
+- k → spring constant  
+
+The plant is modeled as a transfer function and reused across all control strategies.
+
+---
+
+## 🧩 System Architecture
+
+All simulations use a common plant model:
+
+model/plant_definition.m
+
+This file defines:
+- System parameters (m, c, k)  
+- Transfer function G(s)  
+
+### 🔁 Modular Design
+
+Each control method:
+1. Loads the plant model  
+2. Designs its own controller  
+3. Simulates system response  
+
+Example:
+in matlab
+run('../model/plant_definition.m');
 ---
 
 ## 📷 Results & Analysis
