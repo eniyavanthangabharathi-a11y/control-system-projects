@@ -2,51 +2,25 @@
 
 ## 📌 Problem
 
-Design and analyze control strategies for a mass-spring-damper system.
+The mass-spring-damper system exhibits oscillatory behavior and is sensitive to disturbances.  
+The objective is to improve stability, reduce overshoot, and achieve faster settling using control strategies.
 
 ---
 
-## 🧠 Approaches Implemented
+## 🧠 System Overview
 
-### 1. State Space Analysis
-
-* System modeled in state-space form
-* Studied system dynamics and stability
-
-### 2. State Feedback Control
-
-* Designed controller using feedback
-* Improved stability and response
-
-### 3. Pole Placement Control
-
-* Adjusted system poles to control response
-* Reduced overshoot and settling time
+The system is modeled using differential equations and analyzed using multiple control techniques to observe changes in system dynamics.
 
 ---
 
-## 📊 Results Comparison
-
-| Method         | Stability | Response Speed | Overshoot |
-| -------------- | --------- | -------------- | --------- |
-| Open Loop      | Poor      | Slow           | High      |
-| State Feedback | Good      | Faster         | Medium    |
-| Pole Placement | Best      | Fast           | Low       |
-
----
-
-## 📈 Key Insight
-
-Feedback control significantly improves system stability and performance.
-Different methods provide trade-offs between speed, accuracy, and control effort.
-
----
 ## 📷 Results & Analysis
 
 ### 🔹 Open Loop Response
+
 <p align="center">
   <img src="System_implementation/results/Controller_PID_implement/OpenLoop_dis_0.5.png" width="600">
 </p>
+
 - Overshoot ≈ 30%  
 - Oscillatory response  
 - Slow settling time  
@@ -56,7 +30,10 @@ Different methods provide trade-offs between speed, accuracy, and control effort
 ---
 
 ### 🔹 Closed Loop (PID Control)
-<img src="System_implementation/results/Controller_PID_implement/ClosedLoop_PID_dis_0.5.png" width="600">
+
+<p align="center">
+  <img src="System_implementation/results/Controller_PID_implement/ClosedLoop_PID_dis_0.5.png" width="600">
+</p>
 
 - Reduced oscillations  
 - Faster settling time  
@@ -67,7 +44,10 @@ Different methods provide trade-offs between speed, accuracy, and control effort
 ---
 
 ### 🔹 Pole Placement Control
-<img src="Pole_placement/result/pole_placement.jpg" width="600">
+
+<p align="center">
+  <img src="Pole_placement/result/pole_placement.jpg" width="600">
+</p>
 
 - Controlled overshoot  
 - Faster response compared to open loop  
@@ -77,22 +57,49 @@ Different methods provide trade-offs between speed, accuracy, and control effort
 ---
 
 ### 🔹 State Feedback Control
-<img src="State_feedback_control/result/state_feedback_Effect.jpg" width="600">
+
+<p align="center">
+  <img src="State_feedback_control/result/state_feedback_Effect.jpg" width="600">
+</p>
 
 - Improved stability  
 - Better dynamic response  
 
 👉 Full-state feedback allows precise shaping of system behavior.
+
+---
+
+## 📊 Comparison Summary
+
+| Method            | Stability | Response Speed | Overshoot | Disturbance Handling |
+|------------------|----------|---------------|-----------|----------------------|
+| Open Loop        | Poor     | Slow          | High      | None                 |
+| PID Control      | Good     | Faster        | Low       | Good                 |
+| Pole Placement   | Good     | Fast          | Medium    | Moderate             |
+| State Feedback   | Good     | Fast          | Low       | Good                 |
+
+---
+
+## 📈 Key Engineering Insights
+
+- Open-loop systems are highly sensitive to disturbances and lack stability  
+- Feedback significantly improves system performance and robustness  
+- PID control is effective for practical implementation  
+- Pole placement provides direct control over system dynamics  
+- State feedback enables precise tuning but requires full system states  
+
 ---
 
 ## 🛠 Tools Used
 
-* MATLAB
-* Control System Toolbox
+- MATLAB  
+- Control System Toolbox  
 
 ---
 
 ## 🎯 Conclusion
 
-This project demonstrates how different control strategies affect system behavior and how to choose appropriate methods based on system requirements.
+Feedback control transforms an oscillatory system into a stable and controllable one.  
+Different control strategies provide trade-offs between performance, complexity, and implementation requirements.
 
+Choosing the right method depends on system constraints and desired performance.
