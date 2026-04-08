@@ -48,8 +48,8 @@ Each control method:
 3. Simulates system response  
 
 Example:
-in matlab
-run('../model/plant_definition.m');
+in matlab  
+run('../model/plant_definition.m');  
 ---
 
 ## 📷 Results & Analysis
